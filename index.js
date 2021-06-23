@@ -124,6 +124,7 @@ module.exports.Reader = class Reader {
   }
 
   read (bytes, buf) {
+    if (!bytes) return this.buf.subarray(this.offset)
     if (!buf) buf = new Uint8Array(bytes)
     const end = bytes ? this.offset + bytes : null
 
